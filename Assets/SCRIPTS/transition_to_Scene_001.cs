@@ -1,15 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class LoadSpecificScene : MonoBehaviour
 {
     public string sceneName;
-
-    private void Awake()
-    {
-        fadeSystem = GameObject.FindGameObjectWithTag("FadeSystem").GetComponent<Animator>();
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
