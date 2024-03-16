@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class transition_scene_horizontal : MonoBehaviour
 {
-    
+    [SerializeField] private string sceneName;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Scene_001");
+            SceneManager.LoadScene(sceneName);
         }
     }
 }
