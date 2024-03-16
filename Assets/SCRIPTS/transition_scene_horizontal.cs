@@ -10,7 +10,7 @@ public class transition_scene_horizontal : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(sceneName,LoadSceneMode.Single);
         }
     }
 }
