@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Dont_Destroy_On_Load_Scene : MonoBehaviour
 {
-    [SerializeField] GameObject[] objects;
+    [SerializeField] private GameObject[] objects;
 
     // Méthode appellée avant les fonction start
     void Awake()
