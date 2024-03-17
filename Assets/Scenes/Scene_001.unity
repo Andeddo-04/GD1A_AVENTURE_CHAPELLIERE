@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 11107496}
   - component: {fileID: 11107495}
   - component: {fileID: 11107494}
+  - component: {fileID: 11107497}
   m_Layer: 0
   m_Name: transition_to_Scene_001
   m_TagString: Untagged
@@ -267,6 +268,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &11107497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11107492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bcffa86446f7b146860c06156c3e4b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPosition: {fileID: 0}
 --- !u!1001 &66675077
 PrefabInstance:
   m_ObjectHideFlags: 0

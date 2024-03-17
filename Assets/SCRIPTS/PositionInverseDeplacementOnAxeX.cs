@@ -2,20 +2,22 @@ using UnityEngine;
 
 public class PositionInverseDeplacementOnAxeX : MonoBehaviour
 {
-    public float moveSpeed;
     public Transform player; // Référence au joueur
     public GameObject elementToReverse; // Référence à l'élément à déplacer en inversé
 
     void Update()
     {
-        // Récupère le mouvement horizontal du joueur
-        float movementX = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+        // Récupère la position x du joueur
+        float playerPositionX = player.position.x;
 
-        // Calcule le déplacement inversé sur l'axe X pour l'élément à inverser
-        float reverseMovementX = -movementX;
+        // Calcule l'inverse de la position x du joueur pour l'élément à inverser
+        float inversePositionX = -playerPositionX;
 
-        // Applique le déplacement inversé sur l'axe X à l'élément à inverser
-        elementToReverse.transform.position += Vector3.right * reverseMovementX * Time.deltaTime;
+        // Récupère la position y du joueur
+        float playerPositionY = player.position.y;
+
+        // Modifie directement la position x de l'élément avec l'inverse de la position x du joueur
+        // Modifie la position y de l'élément avec la position y du joueur
+        elementToReverse.transform.position = new Vector3(inversePositionX, playerPositionY, elementToReverse.transform.position.z);
     }
 }
-
