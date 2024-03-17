@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -11,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private SpriteRenderer characterSpriteRenderer;
 
     [SerializeField] private Vector3 velocity = Vector3.zero;
+
+    public GameObject newPositionAxeX;
 
     private Vector2 lastMoveDirection = Vector2.right; // Store last move direction
     
@@ -53,4 +56,22 @@ public class PlayerMovement : MonoBehaviour
             characterSpriteRenderer.flipX = true;
         }
     }
+    
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        StartCoroutine(delaisTransistorAxeX());
+
+        if(collision.CompareTag("transistorAxeX"))
+        {
+            StartCoroutine(delaisTransistorAxeX());
+            GameObject.FindGameObjectWithTag("Player").transform.position = newPositionAxeX.transform.position;
+            StartCoroutine(delaisTransistorAxeX());
+    }
+
+    IEnumerator delaisTransistorAxeX()
+    {
+        // Attendre pendant le temps spécifié
+        yield return new WaitForSeconds(1f);        
+    }
+}
 }

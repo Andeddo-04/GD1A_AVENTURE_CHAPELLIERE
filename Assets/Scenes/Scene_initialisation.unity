@@ -660,6 +660,7 @@ MonoBehaviour:
   characterSprite: {fileID: 1519844967}
   characterSpriteRenderer: {fileID: 1519844963}
   velocity: {x: 0, y: 0, z: 0}
+  newPositionAxeX: {fileID: 2088829928}
 --- !u!61 &1519844966
 BoxCollider2D:
   m_ObjectHideFlags: 0
