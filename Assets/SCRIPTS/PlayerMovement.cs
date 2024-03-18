@@ -66,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(delaisTransistorAxeX());
             GameObject.FindGameObjectWithTag("Player").transform.position = newPositionAxeX.transform.position;
             StartCoroutine(delaisTransistorAxeX());
+        }
     }
 
     IEnumerator delaisTransistorAxeX()
@@ -73,5 +74,4 @@ public class PlayerMovement : MonoBehaviour
         // Attendre pendant le temps spécifié
         yield return new WaitForSeconds(1f);        
     }
-}
 }
