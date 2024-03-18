@@ -6,6 +6,8 @@ public class transition_scene_horizontal : MonoBehaviour
 {
     [SerializeField] private string sceneName;
 
+    private bool canChangeScene = true;
+
     private GameObject player;
 
     void Start()
@@ -16,10 +18,14 @@ public class transition_scene_horizontal : MonoBehaviour
     //[SerializeField] private GameObject[] deplaceTargets;
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
-        {
+
+        if(collision.CompareTag("Player") || canChangeScene)
+        {   
             SceneManager.LoadScene(sceneName,LoadSceneMode.Single);
+            canChangeScene = false;
             StartCoroutine(delaisTransistorAxeX());
+            canChangeScene = true;
+
         }
     }
 
