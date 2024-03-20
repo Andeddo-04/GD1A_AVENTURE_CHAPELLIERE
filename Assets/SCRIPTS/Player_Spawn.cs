@@ -6,6 +6,6 @@ public class Player_Spawn : MonoBehaviour
 {
     void Awake()
     {
-        
+        GameObject.FindGameObjectWithTag("Player").transform.position = transform.position;
     }
 }
