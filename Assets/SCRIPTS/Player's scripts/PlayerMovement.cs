@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Vector3 velocity = Vector3.zero;
 
-    public GameObject newPositionAxeX;
+    public bool completeDongeon = false;
 
     private Vector2 lastMoveDirection = Vector2.right; // Store last move direction
     
