@@ -169,7 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e989628636c2c034187ca0687d171c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Scene_002
 --- !u!61 &11107495
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -542,7 +541,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -707,7 +706,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   m_Color: {r: 0.2516465, g: 0.8207547, b: 0.26278144, a: 1}
   m_FlipX: 0
@@ -1028,7 +1027,7 @@ GameObject:
   - component: {fileID: 2108542892}
   - component: {fileID: 2108542896}
   - component: {fileID: 2108542895}
-  - component: {fileID: 2108542894}
+  - component: {fileID: 2108542897}
   m_Layer: 0
   m_Name: transition_to_Stage_001
   m_TagString: Untagged
@@ -1051,19 +1050,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1531219997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2108542894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108542891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e989628636c2c034187ca0687d171c0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: Stage_001
 --- !u!61 &2108542895
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1151,7 +1137,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.24705882, g: 0.4509804, b: 0.27450982, a: 1}
+  m_Color: {r: 0.33962262, g: 0.059273757, b: 0.1733787, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1161,6 +1147,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2108542897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108542891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2bdd16c28d8fb44f9621ac035f9bcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Stage_001
 --- !u!1 &2109583667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,7 +1333,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   m_Color: {r: 0, g: 1, b: 0.9476254, a: 1}
   m_FlipX: 0
@@ -1365,6 +1364,6 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 26117532}
   - {fileID: 1480524164}
+  - {fileID: 26117532}
   - {fileID: 1531219997}
