@@ -6,8 +6,6 @@ public class transition_scene : MonoBehaviour
 {
     [SerializeField] private string sceneName;
 
-    private bool canChangeScene = true;
-
     private GameObject player;
 
     void Start()
@@ -15,23 +13,12 @@ public class transition_scene : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    //[SerializeField] private GameObject[] deplaceTargets;
     void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if(collision.CompareTag("Player") && canChangeScene)
+        if(collision.CompareTag("Player"))
         {   
             SceneManager.LoadScene(sceneName,LoadSceneMode.Single);
-            canChangeScene = false;
-            StartCoroutine(delaisTransistorAxeX());
-            canChangeScene = true;
-
         }
-    }
-
-    IEnumerator delaisTransistorAxeX()
-    {
-        // Attendre pendant le temps spécifié
-        yield return new WaitForSeconds(1f);        
     }
 }

@@ -1,17 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExitDongeon : MonoBehaviour
 {
+    [SerializeField] private string sceneName;
+    private GameObject player;
+    public PlayerMovement playerScript;
 
-    public PlayerMovement myPlayerScript;
-
-    void private void Awake()
+    void Start()
     {
-        if (myPlayerScript.completeDongeon)
-        {
-            GameObject.FindGameObjectWithTag("Player").transform.position = transform.position;
-        }        
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = player.GetComponent<PlayerMovement>();
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {   
+            playerScript.completeDongeon = true; // Fait passer completeDongeon en true
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        }
     }
 }

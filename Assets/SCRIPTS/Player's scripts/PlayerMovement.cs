@@ -56,22 +56,4 @@ public class PlayerMovement : MonoBehaviour
             characterSpriteRenderer.flipX = true;
         }
     }
-    
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        StartCoroutine(delaisTransistorAxeX());
-
-        if(collision.CompareTag("transistorAxeX"))
-        {
-            StartCoroutine(delaisTransistorAxeX());
-            GameObject.FindGameObjectWithTag("Player").transform.position = newPositionAxeX.transform.position;
-            StartCoroutine(delaisTransistorAxeX());
-        }
-    }
-
-    IEnumerator delaisTransistorAxeX()
-    {
-        // Attendre pendant le temps spécifié
-        yield return new WaitForSeconds(1f);        
-    }
 }
