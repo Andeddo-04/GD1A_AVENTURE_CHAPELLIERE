@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gentil_Copain : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private float distanceToStop = 2f; // Distance à laquelle l'entité s'arrêtera
+    [SerializeField] private float distanceToStop = 3f; // Distance à laquelle l'entité s'arrêtera
     private Rigidbody2D rb;
 
     public bool playerInRange = false;
@@ -20,7 +20,7 @@ public class Gentil_Copain : MonoBehaviour
         if (playerInRange)
         {
             Vector2 direction = player.transform.position - transform.position;
-            float distance = direction.magnitude;
+            float distance = direction.magnitude; // .magnitude permet d'avoir la distance du vecteur, dans le cas ci, c'est la distance entre l'entitée et le joueur
 
             if (distance > distanceToStop)
             {
