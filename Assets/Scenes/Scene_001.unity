@@ -826,8 +826,8 @@ Transform:
   m_GameObject: {fileID: 1209319549}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.86307, y: -0.3505465, z: 0.048752036}
-  m_LocalScale: {x: 33.623043, y: 19.104, z: 1.9104}
+  m_LocalPosition: {x: 0.86307, y: -0.35055, z: 0.048752036}
+  m_LocalScale: {x: 36.060715, y: 20.7756, z: 1.9104}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1531219997}
@@ -1013,9 +1013,54 @@ Transform:
   - {fileID: 1209319550}
   - {fileID: 11107493}
   - {fileID: 2108542892}
+  - {fileID: 1860968312}
   - {fileID: 984527996}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1860968311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1860968312}
+  - component: {fileID: 1860968313}
+  m_Layer: 0
+  m_Name: ExtiDongeon
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1860968312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860968311}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 6, z: -8.407134}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1531219997}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1860968313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860968311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1f3b500b8b94b4d9e0edb542fd0c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2108542891
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,7 +1089,7 @@ Transform:
   m_GameObject: {fileID: 2108542891}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.06, y: 9.1, z: 0}
+  m_LocalPosition: {x: 0, y: 9, z: 0}
   m_LocalScale: {x: 4.818372, y: 1.4301572, z: 1.9104}
   m_ConstrainProportionsScale: 0
   m_Children: []

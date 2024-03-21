@@ -851,9 +851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e989628636c2c034187ca0687d171c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Scene_001
-  canChangeScene: 1
-  player: {fileID: 0}
 --- !u!114 &2059351334
 MonoBehaviour:
   m_ObjectHideFlags: 0
