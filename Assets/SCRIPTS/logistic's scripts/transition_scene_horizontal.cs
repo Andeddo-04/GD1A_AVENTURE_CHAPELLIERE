@@ -19,7 +19,7 @@ public class transition_scene_horizontal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if(collision.CompareTag("Player") || canChangeScene)
+        if(collision.CompareTag("Player") && canChangeScene)
         {   
             SceneManager.LoadScene(sceneName,LoadSceneMode.Single);
             canChangeScene = false;

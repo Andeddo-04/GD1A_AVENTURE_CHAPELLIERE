@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gentil_Copain : MonoBehaviour
+public class GentilCopainCorrompu : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private float distanceToStop = 3f; // Distance à laquelle l'entité s'arrêtera
+    [SerializeField] private float distanceToStop; // Distance à laquelle l'entité s'arrêtera
     private Rigidbody2D rb;
 
     public bool playerInRange = false;
@@ -25,7 +25,7 @@ public class Gentil_Copain : MonoBehaviour
             if (distance > distanceToStop)
             {
                 direction.Normalize();
-                rb.velocity = direction; // Vous pouvez modifier la vitesse en multipliant par une valeur
+                rb.velocity = direction * 2f; // Vous pouvez modifier la vitesse en multipliant par une valeur
             }
             
             else
