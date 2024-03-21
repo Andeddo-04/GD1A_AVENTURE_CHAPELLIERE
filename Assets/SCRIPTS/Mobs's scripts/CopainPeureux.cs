@@ -19,7 +19,7 @@ public class CopainPeureux : MonoBehaviour
     {
         if (playerInRange)
         {
-            Vector2 direction = player.transform.position + transform.position;
+            Vector2 direction = transform.position - player.transform.position;
             float distance = direction.magnitude; // .magnitude permet d'avoir la distance du vecteur, dans le cas ci, c'est la distance entre l'entitée et le joueur
 
             if (distance > distanceToStop)

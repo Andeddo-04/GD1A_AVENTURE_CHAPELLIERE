@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class transition_scene_horizontal : MonoBehaviour
+public class transition_scene : MonoBehaviour
 {
     [SerializeField] private string sceneName;
 
