@@ -4,18 +4,28 @@ using UnityEngine;
 
 public class DetectionArea : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GentilCopainCorrompu playerDetection;
+
     void Start()
     {
-        
+        bool playerDetection = GentilCopainCorrompu.playerInRange;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.CompareTag("Player"))
+        {
+            player = collision.gameObject;
+            playerDetection = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerDetection = false;
+        }
     }
 }
-
-playerHealth playerHealth = collision.transform.GetComponent<playerHealth>();
-playerHealth.TakeDamage(10);

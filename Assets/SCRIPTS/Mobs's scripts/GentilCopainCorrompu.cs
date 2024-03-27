@@ -10,7 +10,7 @@ public class GentilCopainCorrompu : MonoBehaviour
     [SerializeField] private Transform areaPoint2; // Deuxième point de délimitation de la zone
 
     private Rigidbody2D rb;
-    private bool playerInRange = false;
+    public bool playerInRange = false;
     private Vector2 randomMoveDirection;
     private float timeSinceLastRandomMove;
 
