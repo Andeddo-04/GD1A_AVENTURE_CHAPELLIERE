@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class ExitDongeonSpawnPoint : MonoBehaviour
 {
+    private GameObject player;
     public PlayerMovement myPlayerScript;
 
     void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = player.GetComponent<PlayerMovement>();
+    }
+
+    void Start()
         if (myPlayerScript.completeDongeon)
         {
-            GameObject.FindGameObjectWithTag("Player").transform.position = transform.position;
-        }        
-    }
+            player.transform.position = transform.position;
+        }
 }
