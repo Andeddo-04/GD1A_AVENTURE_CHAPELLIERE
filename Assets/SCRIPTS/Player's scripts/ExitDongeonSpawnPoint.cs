@@ -10,12 +10,14 @@ public class ExitDongeonSpawnPoint : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerScript = player.GetComponent<PlayerMovement>();
+        myPlayerScript = player.GetComponent<PlayerMovement>();
     }
 
     void Start()
+    {
         if (myPlayerScript.completeDongeon)
         {
             player.transform.position = transform.position;
         }
+    }
 }
