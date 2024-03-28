@@ -634,6 +634,7 @@ MonoBehaviour:
   distanceToStop: 2.25
   areaPoint1: {fileID: 1656414308}
   areaPoint2: {fileID: 1969966374}
+  playerInRange: 0
 --- !u!1 &786282979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,6 +1388,7 @@ GameObject:
   - component: {fileID: 1620929591}
   - component: {fileID: 1620929593}
   - component: {fileID: 1620929592}
+  - component: {fileID: 1620929594}
   m_Layer: 0
   m_Name: DetectionArea
   m_TagString: Untagged
@@ -1496,6 +1498,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1620929594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620929590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728d44f80fb3a2f43b5ce4ab884458c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1656414307
 GameObject:
   m_ObjectHideFlags: 0
