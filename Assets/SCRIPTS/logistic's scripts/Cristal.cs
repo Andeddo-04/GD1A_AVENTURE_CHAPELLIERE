@@ -10,7 +10,7 @@ public class Cristal : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        interactUI = GameObject.FindGamebjectWithTag("InteractUI").GetComponent<Text>();
+        interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class Cristal : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            interactUI.enabled = true
+            interactUI.enabled = true;
         }
     }
 
