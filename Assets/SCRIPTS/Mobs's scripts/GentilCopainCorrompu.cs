@@ -50,22 +50,9 @@ public class GentilCopainCorrompu : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    public void VariableChanger(bool newBool)
     {
-        if (collision.CompareTag("Player"))
-        {
-            player = collision.gameObject;
-            playerInRange = true;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            playerInRange = false;
-            rb.velocity = Vector2.zero; // Stopper fluidement le mouvement de l'entité
-        }
+        playerInRange = newBool;
     }
 
     void ChooseRandomMoveDirection()
@@ -73,5 +60,21 @@ public class GentilCopainCorrompu : MonoBehaviour
         Vector2 areaSize = areaPoint2.position - areaPoint1.position;
         Vector2 randomPoint = areaPoint1.position + new Vector3(Random.value * areaSize.x, Random.value * areaSize.y);
         randomMoveDirection = (randomPoint - (Vector2)transform.position).normalized;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            player = other.gameObject;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            player = null;
+        }
     }
 }

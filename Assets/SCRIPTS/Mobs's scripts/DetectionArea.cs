@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class DetectionArea : MonoBehaviour
 {
-    public GentilCopainCorrompu playerDetection;
+
+    private GentilCopainCorrompu playerDetection;
 
     void Start()
     {
-        bool playerDetection = GentilCopainCorrompu.playerInRange;
+        playerDetection = FindObjectOfType<GentilCopainCorrompu>();
     }
 
 
@@ -16,8 +17,7 @@ public class DetectionArea : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            player = collision.gameObject;
-            playerDetection = true;
+            playerDetection.VariableChanger(true);
         }
     }
 
@@ -25,7 +25,7 @@ public class DetectionArea : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            playerDetection = false;
+            playerDetection.VariableChanger(false);
         }
     }
 }
