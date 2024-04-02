@@ -15,7 +15,6 @@ public class Cristal : MonoBehaviour
     {
         interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
         interactUI.enabled = false; // Désactiver le texte au début
-        Debug.Log("void awake() sucessful complete")
     }
 
     void Start()
@@ -39,7 +38,7 @@ public class Cristal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-        {
+        {   
             interactUI.enabled = true;
             isInRange = true;
         }
