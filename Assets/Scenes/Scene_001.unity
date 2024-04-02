@@ -166,9 +166,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 11107492}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e989628636c2c034187ca0687d171c0a, type: 3}
+  m_Script: {fileID: 11500000, guid: a2bdd16c28d8fb44f9621ac035f9bcb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: Scene_002
 --- !u!61 &11107495
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -543,6 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7694c29a0d050a74ba18cf49e226aa2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: Fire cristal
 --- !u!70 &452782974
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -575,8 +577,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.024413604, y: 0.008429427}
-  m_Size: {x: 1.6933477, y: 1.3916487}
+  m_Offset: {x: -0.0061157616, y: 0.008429427}
+  m_Size: {x: 2.0171738, y: 1.3984413}
   m_Direction: 0
 --- !u!1 &491316734
 GameObject:

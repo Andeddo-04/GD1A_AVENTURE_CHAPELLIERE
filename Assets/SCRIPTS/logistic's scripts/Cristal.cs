@@ -2,21 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Cristal : MonoBehaviour
 {
+    [SerializeField] private string sceneName;
     private Text interactUI;
+    private bool isInRange;
+    private GameObject player;
 
-    // Start is called before the first frame update
     void Awake()
     {
         interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
+        interactUI.enabled = false; // Désactiver le texte au début
+        Debug.Log("void awake() sucessful complete")
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     void Update()
     {
-        
+        goInCristal();
+    }
+
+    void goInCristal()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && isInRange)
+        {
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +41,7 @@ public class Cristal : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             interactUI.enabled = true;
+            isInRange = true;
         }
     }
 
@@ -32,6 +50,7 @@ public class Cristal : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             interactUI.enabled = false;
+            isInRange = false;
         }
     }
 }
