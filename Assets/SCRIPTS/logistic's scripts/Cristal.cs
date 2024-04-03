@@ -1,52 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Cristal : MonoBehaviour
 {
-    [SerializeField] private string sceneName;
+    public string sceneName;
     private Text interactUI;
-    private bool isInRange;
-    private GameObject player;
-
-    void Awake()
-    {
-        interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
-        interactUI.enabled = false; // Désactiver le texte au début
-    }
+    public bool isInRange;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
     }
 
     void Update()
     {
-        goInCristal();
-    }
-
-    void goInCristal()
-    {
-        if (Input.GetKeyDown(KeyCode.E) && isInRange)
+        // Vérifier si le joueur est dans la zone et s'il appuie sur la touche E
+        if (isInRange && Input.GetKeyDown(KeyCode.E))
         {
+            // Charger la scène spécifiée
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {   
+        if (collision.collider.gameObject.tag == "Player")
+        {
             interactUI.enabled = true;
             isInRange = true;
         }
     }
 
-    void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.collider.gameObject.tag == "Player")
         {
             interactUI.enabled = false;
             isInRange = false;

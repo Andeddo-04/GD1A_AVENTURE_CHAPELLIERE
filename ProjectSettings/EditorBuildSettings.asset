@@ -17,4 +17,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene_002.unity
     guid: e5155654d7a8acd4799418d328e40c04
+  - enabled: 1
+    path: Assets/Scenes/Dongeon's Scene/Stage_001.unity
+    guid: 27f04429d66f8af46ba7484e64b8706a
+  - enabled: 1
+    path: Assets/Scenes/Dongeon's Scene/Stage_002.unity
+    guid: e58bcab0d3d8ab14e8b1f65d70ba837b
+  - enabled: 1
+    path: Assets/Scenes/Dongeon's Scene/Stage_003.unity
+    guid: ca6e65c5eb92bee40b3c57c90be85abf
+  - enabled: 1
+    path: Assets/Scenes/Cristal's scene/Fire cristal.unity
+    guid: 7e47d9f65d19b9f4587f82ce92853ec3
   m_configObjects: {}
