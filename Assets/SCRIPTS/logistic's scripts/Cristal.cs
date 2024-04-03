@@ -28,18 +28,8 @@ public class Cristal : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            Debug.Log("Arrete de me toucher");
             interactUI.enabled = true;
             isInRange = true;
-
-            if (isInRange)
-            {
-                Debug.Log("Player in range");
-            }
-            else
-            {
-                Debug.Log("Player out of range");
-            }
         }
     }
 
@@ -47,7 +37,6 @@ public class Cristal : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            Debug.Log("Merci bien");
             interactUI.enabled = false;
             isInRange = false;
         }
