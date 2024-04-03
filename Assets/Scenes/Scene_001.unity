@@ -1555,6 +1555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Fire cristal
+  isInRange: 0
 --- !u!212 &1646254904
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1641,7 +1642,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.49999997
+  m_Radius: 0.6
 --- !u!50 &1646254906
 Rigidbody2D:
   serializedVersion: 4

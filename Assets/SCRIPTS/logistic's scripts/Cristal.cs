@@ -1,16 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Cristal : MonoBehaviour
 {
     public string sceneName;
-    private Text interactUI;
+    private TextMeshProUGUI interactUI;
     public bool isInRange;
 
     void Start()
     {
-        interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
+        interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
@@ -25,17 +26,28 @@ public class Cristal : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.gameObject.tag == "Player")
+        if (collision.collider.CompareTag("Player"))
         {
+            Debug.Log("Arrete de me toucher");
             interactUI.enabled = true;
             isInRange = true;
+
+            if (isInRange)
+            {
+                Debug.Log("Player in range");
+            }
+            else
+            {
+                Debug.Log("Player out of range");
+            }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.gameObject.tag == "Player")
+        if (collision.collider.CompareTag("Player"))
         {
+            Debug.Log("Merci bien");
             interactUI.enabled = false;
             isInRange = false;
         }
