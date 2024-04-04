@@ -15,7 +15,7 @@ public class BossMovement : MonoBehaviour
 
     public Transform[] teleportPoints;
 
-    private Transform target, initialPosition;
+    private Transform target;
 
     private int desPoint;
 
@@ -35,25 +35,38 @@ public class BossMovement : MonoBehaviour
         {
             // faire paterns attaque et autre
 
-            // appeler la coroutine de tp
+            StartCoroutine(TeleportationFrames());
+            
         }
     }
 
     public IEnumerator PremiereTP()
     {
         yield return new WaitForSeconds(1f);
-        miniBoss.transform.position = teleportPoints[Random.Range(0, 3)].transform.position;
+        miniBoss.transform.position = teleportPoints[Random.Range(0, 4)].transform.position;
+        StartCoroutine(Cooldown());
     }
 
-    //public IEnumerator teleportationframes()
-    //{
-    //isInvicible = true;
+    public IEnumerator TeleportationFrames()
+    {
+        isInvicible = true;
 
-    //desPoint = (desPoint + 1) % teleportPoints.Length; // % = reste division
-    //target = teleportPoints[desPoint];
+        Debug.Log("Attente");
+        yield return new WaitForSeconds(3f);
+        
+        miniBossSripteRenderer.color = new Color(1f, 1f, 1f, 0f);
+        miniBoss.transform.position = teleportPoints[Random.Range(0, 3)].transform.position;
 
-    //miniBossSripteRenderer.color = new Color(1f, 1f, 1f, 0f);
-    //yield return new WaitForSeconds(0.33f);
-    //}
+        Debug.Log("Nouvelle attente");
+        yield return new WaitForSeconds(3f);
+        miniBossSripteRenderer.color = new Color(1f, 1f, 1f, 0f);
+
+        isInvicible = false;
+    }
+
+    public IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(1f);
+    }
 
 }
