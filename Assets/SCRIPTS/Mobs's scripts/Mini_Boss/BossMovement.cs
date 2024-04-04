@@ -15,15 +15,6 @@ public class BossMovement : MonoBehaviour
 
     public Transform[] teleportPoints;
 
-    private Transform target;
-
-    private int desPoint;
-
-    //void Awake()
-    //{
-    //target = teleportPoints[0];
-    //}
-
     void Start()
     {
         StartCoroutine(PremiereTP());
