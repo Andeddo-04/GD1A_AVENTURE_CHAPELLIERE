@@ -8,7 +8,7 @@ public class BossMovement : MonoBehaviour
     
     private bool isDead = false, isInvicible = false, coroutineIsStarted = false;
 
-    public bool playerAtCAC = false, playerAtMELE = false;
+    public bool playerAtCAC = false, playerAtMELE = false, playerAtRANGE = false;
 
     public GameObject miniBoss;
 
@@ -29,19 +29,19 @@ public class BossMovement : MonoBehaviour
         {
             // faire paterns attaque et autre
 
-            if (playerAtCAC == true && playerAtMELE == true)
+            if (playerAtCAC)
             {
                 Debug.Log("Attaque en CAC");
                 StartCoroutine(Cooldown(3));
             }
 
-            if (playerAtCAC == false && playerAtMELE == true)
+            if (playerAtMELE)
             {
                 Debug.Log("Attaque en MELE");
                 StartCoroutine(Cooldown(3));
             }
 
-            if(playerAtCAC == false && playerAtMELE == false)
+            if (playerAtRANGE)
             {
                 Debug.Log("Attaque a distance");
                 StartCoroutine(Cooldown(3));
@@ -60,13 +60,35 @@ public class BossMovement : MonoBehaviour
     public void cacStatusChanger(bool newBool)
     {
         playerAtCAC = newBool;
+
+        if (playerAtCAC)
+        {
+            playerAtMELE = false;
+            playerAtRANGE = false;
+        }
     }
 
     public void meleStatusChanger(bool newBool)
     {
         playerAtMELE = newBool;
+
+        if (playerAtMELE)
+        {
+            playerAtCAC = false;
+            playerAtRANGE = false;
+        }
     }
 
+    public void rangeStatusChanger(bool newBool)
+    {
+        playerAtRANGE = newBool;
+
+        if (playerAtRANGE)
+        {
+            playerAtMELE = false;
+            playerAtCAC = false;
+        }
+    }
 
     ////////// * Coroutines * \\\\\\\\\\
 
