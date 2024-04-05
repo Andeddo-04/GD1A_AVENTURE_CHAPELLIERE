@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class BossMovement : MonoBehaviour
 {
+    ////////// * Variables * \\\\\\\\\\
+    
+    private bool isDead = false, isInvicible = false, coroutineIsStarted = false;
 
-    private bool isDead = false, isInvicible = false;
+    public bool playerAtCAC = false, playerAtMELE = false;
 
     public GameObject miniBoss;
 
@@ -17,7 +20,7 @@ public class BossMovement : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(PremiereTP());
+        //StartCoroutine(PremiereTP());
     }
 
     void Update()
@@ -26,38 +29,74 @@ public class BossMovement : MonoBehaviour
         {
             // faire paterns attaque et autre
 
-            StartCoroutine(TeleportationFrames());
-            
+            if (playerAtCAC == true && playerAtMELE == true)
+            {
+                Debug.Log("Attaque en CAC");
+                StartCoroutine(Cooldown(3));
+            }
+
+            if (playerAtCAC == false && playerAtMELE == true)
+            {
+                Debug.Log("Attaque en MELE");
+                StartCoroutine(Cooldown(3));
+            }
+
+            if(playerAtCAC == false && playerAtMELE == false)
+            {
+                Debug.Log("Attaque a distance");
+                StartCoroutine(Cooldown(3));
+            }
+
+            //if (coroutineIsStarted == false)
+            //{
+            //StartCoroutine(TeleportationFrames());
+
+            //}
+
         }
     }
+
+    ////////// * Méthode pour changer les bool depuis un autre script * \\\\\\\\\\
+    public void cacStatusChanger(bool newBool)
+    {
+        playerAtCAC = newBool;
+    }
+
+    public void meleStatusChanger(bool newBool)
+    {
+        playerAtMELE = newBool;
+    }
+
+
+    ////////// * Coroutines * \\\\\\\\\\
 
     public IEnumerator PremiereTP()
     {
         yield return new WaitForSeconds(1f);
         miniBoss.transform.position = teleportPoints[Random.Range(0, 4)].transform.position;
-        StartCoroutine(Cooldown());
+        StartCoroutine(Cooldown(1));
     }
 
     public IEnumerator TeleportationFrames()
     {
+        coroutineIsStarted = true;
+
         isInvicible = true;
 
         Debug.Log("Attente");
         yield return new WaitForSeconds(3f);
         
-        miniBossSripteRenderer.color = new Color(1f, 1f, 1f, 0f);
-        miniBoss.transform.position = teleportPoints[Random.Range(0, 3)].transform.position;
-
-        Debug.Log("Nouvelle attente");
-        yield return new WaitForSeconds(3f);
-        miniBossSripteRenderer.color = new Color(1f, 1f, 1f, 0f);
+        
+        miniBoss.transform.position = teleportPoints[Random.Range(0, 4)].transform.position;
 
         isInvicible = false;
+
+        coroutineIsStarted = false;
     }
 
-    public IEnumerator Cooldown()
+    public IEnumerator Cooldown(int _delaisCooldown)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(_delaisCooldown);
     }
 
 }
