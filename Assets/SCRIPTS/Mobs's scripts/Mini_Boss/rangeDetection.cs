@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class rangeDetection : MonoBehaviour
 {
-    private BossMovement playerAtARNGE;
+    private BossMovement playerAtRANGE;
 
     void Start()
     {
-        playerAtARNGE = FindObjectOfType<BossMovement>();
+        playerAtRANGE = FindObjectOfType<BossMovement>();
     }
 
 
@@ -16,7 +16,7 @@ public class rangeDetection : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            playerAtARNGE.rangeStatusChanger(true);
+            playerAtRANGE.rangeStatusChanger(true);
         }
     }
 
@@ -24,7 +24,7 @@ public class rangeDetection : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            playerAtARNGE.rangeStatusChanger(false);
+            playerAtRANGE.rangeStatusChanger(false);
         }
     }
 }
