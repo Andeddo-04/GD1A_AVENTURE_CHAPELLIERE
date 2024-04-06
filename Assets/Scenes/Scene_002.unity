@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 11107493}
   - component: {fileID: 11107496}
   - component: {fileID: 11107495}
-  - component: {fileID: 11107494}
+  - component: {fileID: 11107497}
   m_Layer: 0
   m_Name: transition_to_Scene_001
   m_TagString: transistorAxeX
@@ -157,19 +157,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1531219997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &11107494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11107492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e989628636c2c034187ca0687d171c0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: Scene_001
 --- !u!61 &11107495
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -267,6 +254,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &11107497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11107492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2bdd16c28d8fb44f9621ac035f9bcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Scene_001
 --- !u!1001 &66675077
 PrefabInstance:
   m_ObjectHideFlags: 0
