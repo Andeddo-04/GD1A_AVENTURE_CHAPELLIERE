@@ -47,11 +47,10 @@ public class BossMovement : MonoBehaviour
                 StartCoroutine(Cooldown(3));
             }
 
-            //if (coroutineIsStarted == false)
-            //{
-            //StartCoroutine(TeleportationFrames());
-
-            //}
+            if (coroutineIsStarted == false)
+            {
+                StartCoroutine(TeleportationFrames());
+            }
 
         }
     }
