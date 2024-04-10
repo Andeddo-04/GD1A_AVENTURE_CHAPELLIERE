@@ -95,7 +95,7 @@ public class GentilCopainCorrompu : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            player = null;
+            player = other.gameObject;
         }
     }
 }

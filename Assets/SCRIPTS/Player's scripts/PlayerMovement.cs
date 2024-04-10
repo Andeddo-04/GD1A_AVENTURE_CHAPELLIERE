@@ -32,23 +32,24 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        MovePlayer();
+        MoveCrossHair();
+        RotatePlayerTowardsCrosshair();
+
+        // Flip the character based on last move direction
+        //if (horizontalMovement != 0)
+        //{
+        //    lastMoveDirection = new Vector2(horizontalMovement, 0f);
+        //    Flip();
+        //}
+    }
+
+    void MovePlayer()
+    {
         horizontalMovement = player.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
         verticalMovement = player.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
 
-        MovePlayer(horizontalMovement, verticalMovement);
-        MoveCrossHair();
-
-        // Flip the character based on last move direction
-        if (horizontalMovement != 0)
-        {
-            lastMoveDirection = new Vector2(horizontalMovement, 0f);
-            Flip();
-        }
-    }
-
-    void MovePlayer(float _horizontalMovement, float _verticalMovement)
-    {
-        Vector3 targetVelocity = new Vector2(_horizontalMovement, _verticalMovement);
+        Vector3 targetVelocity = new Vector2(horizontalMovement, verticalMovement);
         characterSprite.velocity = Vector3.SmoothDamp(characterSprite.velocity, targetVelocity, ref velocity, 0.05f);
     }
 
@@ -66,6 +67,27 @@ public class PlayerMovement : MonoBehaviour
         {
             crossHair.SetActive(false);
         }
+    }
+
+    private void RotatePlayerTowardsCrosshair()
+    {
+        if (crossHair && crossHair.activeSelf)
+        {
+            // Get the direction from player position to crosshair position
+            Vector3 directionToCrosshair = crossHair.transform.position - transform.position;
+
+            // Calculate the angle in degrees
+            float angle = Mathf.Atan2(directionToCrosshair.y, directionToCrosshair.x) * Mathf.Rad2Deg;
+
+            // Rotate the player sprite towards the crosshair
+            characterSpriteRenderer.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+        else
+        {
+            // Reset the rotation of the player sprite if crosshair is not active
+            characterSpriteRenderer.transform.rotation = Quaternion.identity;
+        }
+
     }
 
     void Flip()
