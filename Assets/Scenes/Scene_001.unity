@@ -591,7 +591,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623292128}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d79b6918378246448a37ae5ff56e73ec, type: 3}
   m_Name: 
@@ -601,6 +601,7 @@ MonoBehaviour:
   areaPoint1: {fileID: 1656414308}
   areaPoint2: {fileID: 1969966374}
   playerInRange: 0
+  playerIsInDamageRange: 0
 --- !u!1 &704487946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,7 +1049,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786282979}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f01e85f046fc014eb9bc825ac02e7c3, type: 3}
   m_Name: 
@@ -1669,7 +1670,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518695168}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc0204a2530aba94c84cba73276e2386, type: 3}
   m_Name: 
@@ -2643,7 +2644,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109583667}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25955a71126e2ac4cad2740dcdc5e053, type: 3}
   m_Name: 

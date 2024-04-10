@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     {
         MovePlayer();
         MoveCrossHair();
-        RotatePlayerTowardsCrosshair();
+        //RotatePlayerTowardsCrosshair();
 
         // Flip the character based on last move direction
         //if (horizontalMovement != 0)
