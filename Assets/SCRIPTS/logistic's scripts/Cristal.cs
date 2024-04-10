@@ -17,7 +17,7 @@ public class Cristal : MonoBehaviour
     void Update()
     {
         // Vérifier si le joueur est dans la zone et s'il appuie sur la touche E
-        if (isInRange && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown("PS4Square")))
+        if (isInRange && Input.GetKeyDown(KeyCode.E))
         {
             // Charger la scène spécifiée
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
