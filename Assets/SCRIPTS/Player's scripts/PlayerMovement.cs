@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Rewired;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,13 +11,13 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private SpriteRenderer characterSpriteRenderer;
 
-    [SerializeField] private Vector3 velocity = Vector3.zero;
+    private Vector3 velocity = Vector3.zero;
 
     public bool completeDongeon = false;
 
     private Vector2 lastMoveDirection = Vector2.right; // Store last move direction
 
-    private Vector3 aim;
+    private Vector3 attackDirection;
 
     public GameObject crossHair;
 
@@ -31,16 +29,11 @@ public class PlayerMovement : MonoBehaviour
     {
         player = ReInput.players.GetPlayer(playerId);
     }
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
-        horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        verticalMovement = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+        horizontalMovement = player.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+        verticalMovement = player.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
 
         MovePlayer(horizontalMovement, verticalMovement);
         MoveCrossHair();
@@ -61,13 +54,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveCrossHair()
     {
-        aim = new Vector3 (player.GetAxis("AimHorizontal"), player.GetAxis("AimVertical"), 0.0f);
+        attackDirection = new Vector3(player.GetAxis("AimHorizontal"), player.GetAxis("AimVertical"), 0.0f);
 
-        if (aim.magnitude > 0.0f)
+        if (attackDirection.magnitude > 0.0f)
         {
-            aim.Normalize();
-            aim *= 0.4f;
-            crossHair.transform.localPosition = aim * 2;
+            attackDirection.Normalize();
+            attackDirection *= 2.0f;
+            crossHair.transform.localPosition = attackDirection;
+            crossHair.SetActive(true);
+        } else
+        {
+            crossHair.SetActive(false);
         }
     }
 

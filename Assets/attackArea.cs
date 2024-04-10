@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectionArea : MonoBehaviour
+public class attackArea : MonoBehaviour
 {
 
     private GentilCopainCorrompu playerDetection;
@@ -17,7 +17,7 @@ public class DetectionArea : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            playerDetection.playerInRangeUpdater(true);
+            playerDetection.playerIsInDamageRangeUpdater(true);
         }
     }
 
@@ -25,7 +25,7 @@ public class DetectionArea : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            playerDetection.playerInRangeUpdater(false);
+            playerDetection.playerIsInDamageRangeUpdater(false);
         }
     }
 }

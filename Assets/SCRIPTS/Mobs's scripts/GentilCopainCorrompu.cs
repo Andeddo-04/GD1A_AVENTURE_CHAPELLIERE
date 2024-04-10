@@ -9,8 +9,11 @@ public class GentilCopainCorrompu : MonoBehaviour
     [SerializeField] private Transform areaPoint1; // Premier point de délimitation de la zone
     [SerializeField] private Transform areaPoint2; // Deuxième point de délimitation de la zone
 
+
+    private playerHealth playerHealth;
+
     private Rigidbody2D rb;
-    public bool playerInRange = false;
+    public bool playerInRange = false, playerIsInDamageRange = false;
     private Vector2 randomMoveDirection;
     private float timeSinceLastRandomMove;
 
@@ -48,11 +51,19 @@ public class GentilCopainCorrompu : MonoBehaviour
             }
             rb.velocity = randomMoveDirection * 2f;
         }
+
+        MakeDamages();
+
     }
 
-    public void VariableChanger(bool newBool)
+    public void playerInRangeUpdater(bool newBool)
     {
         playerInRange = newBool;
+    }
+
+    public void playerIsInDamageRangeUpdater(bool newBool)
+    {
+        playerIsInDamageRange = newBool;
     }
 
     void ChooseRandomMoveDirection()
@@ -61,6 +72,16 @@ public class GentilCopainCorrompu : MonoBehaviour
         Vector2 randomPoint = areaPoint1.position + new Vector3(Random.value * areaSize.x, Random.value * areaSize.y);
         randomMoveDirection = (randomPoint - (Vector2)transform.position).normalized;
     }
+
+    void MakeDamages()
+    {
+        if (playerIsInDamageRange)
+        {
+            playerHealth = player.GetComponent<playerHealth>();
+            playerHealth.TakeDamage(10);
+        }
+    }
+
 
     void OnTriggerEnter2D(Collider2D other)
     {

@@ -2,16 +2,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Rewired;
 
 public class Cristal : MonoBehaviour
 {
     public string sceneName;
     private TextMeshProUGUI interactUI;
     public bool isInRange;
+    private PlayerMovement player;
 
     void Start()
     {
         interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<TextMeshProUGUI>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     void Update()
