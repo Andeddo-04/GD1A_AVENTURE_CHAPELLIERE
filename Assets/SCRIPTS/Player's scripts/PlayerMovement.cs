@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,8 +18,19 @@ public class PlayerMovement : MonoBehaviour
     public bool completeDongeon = false;
 
     private Vector2 lastMoveDirection = Vector2.right; // Store last move direction
-    
-    // Start is called before the first frame update
+
+    private Vector3 aim;
+
+    public GameObject crossHair;
+
+    private Player player;
+
+    public int playerId = 0;
+
+    private void Awake()
+    {
+        player = ReInput.players.GetPlayer(playerId);
+    }
     void Start()
     {
         
@@ -30,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         verticalMovement = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
 
         MovePlayer(horizontalMovement, verticalMovement);
+        MoveCrossHair();
 
         // Flip the character based on last move direction
         if (horizontalMovement != 0)
@@ -43,6 +57,18 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 targetVelocity = new Vector2(_horizontalMovement, _verticalMovement);
         characterSprite.velocity = Vector3.SmoothDamp(characterSprite.velocity, targetVelocity, ref velocity, 0.05f);
+    }
+
+    private void MoveCrossHair()
+    {
+        aim = new Vector3 (player.GetAxis("AimHorizontal"), player.GetAxis("AimVertical"), 0.0f);
+
+        if (aim.magnitude > 0.0f)
+        {
+            aim.Normalize();
+            aim *= 0.4f;
+            crossHair.transform.localPosition = aim * 2;
+        }
     }
 
     void Flip()
