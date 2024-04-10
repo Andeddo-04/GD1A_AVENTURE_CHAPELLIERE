@@ -35,13 +35,6 @@ public class PlayerMovement : MonoBehaviour
         MovePlayer();
         MoveCrossHair();
         //RotatePlayerTowardsCrosshair();
-
-        // Flip the character based on last move direction
-        //if (horizontalMovement != 0)
-        //{
-        //    lastMoveDirection = new Vector2(horizontalMovement, 0f);
-        //    Flip();
-        //}
     }
 
     void MovePlayer()
@@ -88,17 +81,5 @@ public class PlayerMovement : MonoBehaviour
             characterSpriteRenderer.transform.rotation = Quaternion.identity;
         }
 
-    }
-
-    void Flip()
-    {
-        if (lastMoveDirection.x < 0)
-        {
-            characterSpriteRenderer.flipX = false;
-        }
-        else if (lastMoveDirection.x > 0)
-        {
-            characterSpriteRenderer.flipX = true;
-        }
     }
 }
