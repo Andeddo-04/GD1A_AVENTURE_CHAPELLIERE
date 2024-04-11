@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 attackDirection;
 
-    public GameObject crossHair;
+    public GameObject crossHair,newPosition;
 
     private Player player;
 
@@ -34,7 +34,8 @@ public class PlayerMovement : MonoBehaviour
     {
         MovePlayer();
         MoveCrossHair();
-        //RotatePlayerTowardsCrosshair();
+        RotatePlayerTowardsCrosshair();
+        crossHairTracker();
     }
 
     void MovePlayer()
@@ -81,5 +82,10 @@ public class PlayerMovement : MonoBehaviour
             characterSpriteRenderer.transform.rotation = Quaternion.identity;
         }
 
+    }
+
+    void crossHairTracker()
+    {
+        GameObject.FindGameObjectWithTag("crossHairTracker").transform.position = newPosition.transform.position;
     }
 }
