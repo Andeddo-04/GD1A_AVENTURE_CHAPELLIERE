@@ -9,19 +9,19 @@ public class Cristal : MonoBehaviour
     public string sceneName;
     private TextMeshProUGUI interactUI;
     public bool isInRange;
-    private PlayerMovement player;
+    private Player player;
 
     void Start()
     {
         interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<TextMeshProUGUI>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     void Update()
     {
         // Vérifier si le joueur est dans la zone et s'il appuie sur la touche E
-        if (isInRange && Input.GetKeyDown(KeyCode.E))
+        if (isInRange && (Input.GetKeyDown(KeyCode.E) || player.GetButtonDown("Interaction")))
         {
+            Debug.Log("interaction manette réussie");
             // Charger la scène spécifiée
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
