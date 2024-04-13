@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float horizontalMovement, verticalMovement;
+    private float controler_horizontalMovement, controler_verticalMovement, keyboard_horizontalMovement, keyboard_verticalMovement;
 
     [SerializeField] private float moveSpeed;
 
@@ -40,16 +40,24 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        horizontalMovement = player.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        verticalMovement = player.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+        // * Contrôle a la manette * \\
+        controler_horizontalMovement = player.GetAxis("Controler_MoveHorizontal") * moveSpeed * Time.deltaTime;
+        controler_verticalMovement = player.GetAxis("Controler_MoveVertical") * moveSpeed * Time.deltaTime;
 
-        Vector3 targetVelocity = new Vector2(horizontalMovement, verticalMovement);
-        characterSprite.velocity = Vector3.SmoothDamp(characterSprite.velocity, targetVelocity, ref velocity, 0.05f);
+        Vector3 targetVelocityWhisControler = new Vector2(controler_horizontalMovement, controler_verticalMovement);
+        characterSprite.velocity = Vector3.SmoothDamp(characterSprite.velocity, targetVelocityWhisControler, ref velocity, 0.05f);
+
+        // * Contrôle au clavier * \\
+        keyboard_horizontalMovement = player.GetAxis("KeyBoard_MoveHorizontal") * moveSpeed * Time.deltaTime;
+        keyboard_verticalMovement = player.GetAxis("KeyBoard_MoveVertical") * moveSpeed * Time.deltaTime;
+
+        Vector3 targetVelocityWhisKeyBoard = new Vector2(keyboard_horizontalMovement, keyboard_verticalMovement);
+        characterSprite.velocity = Vector3.SmoothDamp(characterSprite.velocity, targetVelocityWhisKeyBoard, ref velocity, 0.05f);
     }
 
     private void MoveCrossHair()
     {
-        attackDirection = new Vector3(player.GetAxis("AimHorizontal"), player.GetAxis("AimVertical"), 0.0f);
+        attackDirection = new Vector3(player.GetAxis("Controler_AimHorizontal"), player.GetAxis("Controler_AimVertical"), 0.0f);
 
         if (attackDirection.magnitude > 0.0f)
         {

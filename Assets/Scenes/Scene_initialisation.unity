@@ -532,7 +532,10 @@ MonoBehaviour:
         _categoryId: 0
         _layoutId: 0
       _defaultMouseMaps: []
-      _defaultKeyboardMaps: []
+      _defaultKeyboardMaps:
+      - _enabled: 1
+        _categoryId: 0
+        _layoutId: 0
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
       _assignMouseOnStart: 1
@@ -547,7 +550,16 @@ MonoBehaviour:
         _ruleSets: []
     actions:
     - _id: 1
-      _name: AimHorizontal
+      _name: Controler_AimHorizontal
+      _type: 0
+      _descriptiveName: AimHorizontal
+      _positiveDescriptiveName: MoveRight
+      _negativeDescriptiveName: MoveLeft
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
+    - _id: 7
+      _name: Mouse_AimHorizontal
       _type: 0
       _descriptiveName: AimHorizontal
       _positiveDescriptiveName: MoveRight
@@ -556,7 +568,16 @@ MonoBehaviour:
       _userAssignable: 1
       _categoryId: 0
     - _id: 2
-      _name: AimVertical
+      _name: Mouse_AimVertical
+      _type: 0
+      _descriptiveName: AimVertical
+      _positiveDescriptiveName: MoveUp
+      _negativeDescriptiveName: MoveDown
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
+    - _id: 8
+      _name: Controler_AimVertical
       _type: 0
       _descriptiveName: AimVertical
       _positiveDescriptiveName: MoveUp
@@ -565,7 +586,16 @@ MonoBehaviour:
       _userAssignable: 1
       _categoryId: 0
     - _id: 3
-      _name: Interact
+      _name: Controler_Interact
+      _type: 1
+      _descriptiveName: Interact
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
+    - _id: 9
+      _name: KeyBoard_Interact
       _type: 1
       _descriptiveName: Interact
       _positiveDescriptiveName: 
@@ -574,7 +604,16 @@ MonoBehaviour:
       _userAssignable: 1
       _categoryId: 0
     - _id: 4
-      _name: Attack
+      _name: Controler_Attack
+      _type: 1
+      _descriptiveName: Attack
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
+    - _id: 10
+      _name: KeyBoard_Attack
       _type: 1
       _descriptiveName: Attack
       _positiveDescriptiveName: 
@@ -583,7 +622,16 @@ MonoBehaviour:
       _userAssignable: 1
       _categoryId: 0
     - _id: 5
-      _name: Horizontal
+      _name: Controler_MoveHorizontal
+      _type: 0
+      _descriptiveName: Action0
+      _positiveDescriptiveName: MoveRight
+      _negativeDescriptiveName: MoveLeft
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
+    - _id: 11
+      _name: KeyBoard_MoveHorizontal
       _type: 0
       _descriptiveName: Action0
       _positiveDescriptiveName: MoveRight
@@ -592,7 +640,16 @@ MonoBehaviour:
       _userAssignable: 1
       _categoryId: 0
     - _id: 6
-      _name: Vertical
+      _name: Controler_MoveVertical
+      _type: 0
+      _descriptiveName: Action0
+      _positiveDescriptiveName: MoveUp
+      _negativeDescriptiveName: MoveDown
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
+    - _id: 12
+      _name: KeyBoard_MoveVertical
       _type: 0
       _descriptiveName: Action0
       _positiveDescriptiveName: MoveUp
@@ -609,7 +666,7 @@ MonoBehaviour:
     actionCategoryMap:
       list:
       - categoryId: 0
-        actionIds: 010000000200000003000000040000000500000006000000
+        actionIds: 010000000800000003000000040000000500000006000000090000000a0000000b0000000c0000000700000002000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -700,7 +757,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 2
+        _actionId: 8
         _elementType: 0
         _elementIdentifierId: 3
         _axisRange: 0
@@ -732,14 +789,76 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
-    keyboardMaps: []
+    keyboardMaps:
+    - id: 0
+      categoryId: 0
+      layoutId: 0
+      name: 
+      hardwareGuidString: 
+      customControllerUid: 0
+      actionElementMaps:
+      - _actionCategoryId: 0
+        _actionId: 11
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 1
+        _keyboardKeyCode: 113
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 11
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 100
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 12
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 122
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 12
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 1
+        _keyboardKeyCode: 115
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 10
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 101
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     mouseMaps: []
     customControllerMaps: []
     customControllers: []
     controllerMapLayoutManagerRuleSets: []
     controllerMapEnablerRuleSets: []
     playerIdCounter: 2
-    actionIdCounter: 7
+    actionIdCounter: 13
     actionCategoryIdCounter: 1
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 1
@@ -748,8 +867,8 @@ MonoBehaviour:
     mouseLayoutIdCounter: 1
     customControllerLayoutIdCounter: 1
     joystickMapIdCounter: 1
-    keyboardMapIdCounter: 0
-    mouseMapIdCounter: 1
+    keyboardMapIdCounter: 1
+    mouseMapIdCounter: 2
     customControllerMapIdCounter: 0
     customControllerIdCounter: 0
     controllerMapLayoutManagerSetIdCounter: 0
@@ -1698,7 +1817,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0010879934, y: -0.00083243847}
+  m_Offset: {x: 0.020775616, y: -0.004113674}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1709,7 +1828,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.444571, y: 1.0619504}
+  m_Size: {x: 1.0770694, y: 1.4753895}
   m_EdgeRadius: 0
 --- !u!50 &1519844967
 Rigidbody2D:

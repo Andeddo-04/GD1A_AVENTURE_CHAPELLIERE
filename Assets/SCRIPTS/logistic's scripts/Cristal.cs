@@ -19,9 +19,9 @@ public class Cristal : MonoBehaviour
     void Update()
     {
         // Vérifier si le joueur est dans la zone et s'il appuie sur la touche E
-        if ( ( (isInRange) && (Input.GetKeyDown(KeyCode.E)) ) || ( player.GetButtonDown("Interaction")) )
+        if ((isInRange && player.GetButtonDown("KeyBoard_Interact")) || (isInRange && player.GetButtonDown("Controler_Interact")))
         {
-            Debug.Log("interaction manette réussie");
+            Debug.Log("interaction réussite");
             // Charger la scène spécifiée
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
