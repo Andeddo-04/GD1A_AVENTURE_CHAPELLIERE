@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 lastMoveDirection = Vector2.right; // Store last move direction
 
-    private Vector3 attackDirection;
+    private Vector3 controler_AttackDirection, mouse_AttackDirection;
 
     public GameObject crossHair,newPosition;
 
@@ -57,13 +57,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveCrossHair()
     {
-        attackDirection = new Vector3(player.GetAxis("Controler_AimHorizontal"), player.GetAxis("Controler_AimVertical"), 0.0f);
+        controler_AttackDirection = new Vector3(player.GetAxis("Controler_AimHorizontal"), player.GetAxis("Controler_AimVertical"), 0.0f);
+        mouse_AttackDirection = new Vector3(player.GetAxis("Mouse_AimHorizontal"), player.GetAxis("Mouse_AimVertical"), 0.0f);
 
-        if (attackDirection.magnitude > 0.0f)
+        if (controler_AttackDirection.magnitude > 0.0f)
         {
-            attackDirection.Normalize();
-            attackDirection *= 2.0f;
-            crossHair.transform.localPosition = attackDirection;
+            controler_AttackDirection.Normalize();
+            controler_AttackDirection *= 2.0f;
+            crossHair.transform.localPosition = controler_AttackDirection;
+            crossHair.SetActive(true);
+        } else
+        {
+            crossHair.SetActive(false);
+        }
+
+
+        if (controler_AttackDirection.magnitude > 0.0f)
+        {
+            mouse_AttackDirection.Normalize();
+            mouse_AttackDirection *= 2.0f;
+            crossHair.transform.localPosition = mouse_AttackDirection;
             crossHair.SetActive(true);
         } else
         {

@@ -509,7 +509,10 @@ MonoBehaviour:
       _descriptiveName: System
       _startPlaying: 1
       _defaultJoystickMaps: []
-      _defaultMouseMaps: []
+      _defaultMouseMaps:
+      - _enabled: 1
+        _categoryId: 0
+        _layoutId: 0
       _defaultKeyboardMaps: []
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
@@ -613,7 +616,7 @@ MonoBehaviour:
       _userAssignable: 1
       _categoryId: 0
     - _id: 10
-      _name: KeyBoard_Attack
+      _name: Mouse_Attack
       _type: 1
       _descriptiveName: Attack
       _positiveDescriptiveName: 
@@ -666,7 +669,7 @@ MonoBehaviour:
     actionCategoryMap:
       list:
       - categoryId: 0
-        actionIds: 010000000800000003000000040000000500000006000000090000000a0000000b0000000c0000000700000002000000
+        actionIds: 010000000800000003000000040000000500000006000000090000000b0000000c00000007000000020000000a000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -842,7 +845,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 10
+        _actionId: 9
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -852,7 +855,47 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
-    mouseMaps: []
+    mouseMaps:
+    - id: 2
+      categoryId: 0
+      layoutId: 0
+      name: 
+      hardwareGuidString: 
+      customControllerUid: 0
+      actionElementMaps:
+      - _actionCategoryId: 0
+        _actionId: 7
+        _elementType: 0
+        _elementIdentifierId: 0
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 2
+        _elementType: 0
+        _elementIdentifierId: 1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 10
+        _elementType: 1
+        _elementIdentifierId: 3
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     customControllerMaps: []
     customControllers: []
     controllerMapLayoutManagerRuleSets: []
@@ -868,7 +911,7 @@ MonoBehaviour:
     customControllerLayoutIdCounter: 1
     joystickMapIdCounter: 1
     keyboardMapIdCounter: 1
-    mouseMapIdCounter: 2
+    mouseMapIdCounter: 3
     customControllerMapIdCounter: 0
     customControllerIdCounter: 0
     controllerMapLayoutManagerSetIdCounter: 0
