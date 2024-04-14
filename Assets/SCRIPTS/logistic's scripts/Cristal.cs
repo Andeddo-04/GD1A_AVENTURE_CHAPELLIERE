@@ -10,9 +10,11 @@ public class Cristal : MonoBehaviour
     private TextMeshProUGUI interactUI;
     public bool isInRange;
     private Player player;
+    public int playerId = 0;
 
-    void Start()
+    private void Awake()
     {
+        player = ReInput.players.GetPlayer(playerId);
         interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<TextMeshProUGUI>();
     }
 
