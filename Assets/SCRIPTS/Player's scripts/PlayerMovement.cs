@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
     {
         controler_AttackDirection = new Vector3(player.GetAxis("Controler_AimHorizontal"), player.GetAxis("Controler_AimVertical"), 0.0f);
         mouse_AttackDirection = new Vector3(player.GetAxis("Mouse_AimHorizontal"), player.GetAxis("Mouse_AimVertical"), 0.0f);
-        //mouseMovement = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0.0f);
+        
 
         if (controler_AttackDirection.magnitude > 0.0f)
         {
@@ -71,16 +71,16 @@ public class PlayerMovement : MonoBehaviour
             controler_AttackDirection *= 2.0f;
             crossHair.transform.localPosition = controler_AttackDirection;
             crossHair.SetActive(true);
-        } 
-        
-        if (mouse_AttackDirection.magnitude > 0.0f)
+        }
+
+        else if (mouse_AttackDirection.magnitude > 0.0f)
         {
             mouse_AttackDirection.Normalize();
-            mouse_AttackDirection *= 2.0f;
+            mouse_AttackDirection *= 4.0f;
             crossHair.transform.localPosition = mouse_AttackDirection;
             crossHair.SetActive(true);
         }
-        
+
         else
         {
             crossHair.SetActive(false);
