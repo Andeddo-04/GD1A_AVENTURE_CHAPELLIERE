@@ -13,11 +13,11 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero;
 
-    public bool completeDongeon = false;
+    public bool completeDongeon = false, isAiming = false;
 
     private Vector2 lastMoveDirection = Vector2.right; // Store last move direction
 
-    private Vector3 controler_AttackDirection, mouse_AttackDirection, mouseMovement;
+    private Vector3 controler_AttackDirection, mouse_AttackDirection;
 
     public GameObject crossHair,newPosition;
 
@@ -55,15 +55,13 @@ public class PlayerMovement : MonoBehaviour
         characterSprite.velocity = Vector3.SmoothDamp(characterSprite.velocity, targetVelocityWhisKeyBoard, ref velocity, 0.05f);
     }
 
-    private void ProcessInput()
-    {
-
-    }
+    
     private void MoveCrossHair()
     {
         controler_AttackDirection = new Vector3(player.GetAxis("Controler_AimHorizontal"), player.GetAxis("Controler_AimVertical"), 0.0f);
         mouse_AttackDirection = new Vector3(player.GetAxis("Mouse_AimHorizontal"), player.GetAxis("Mouse_AimVertical"), 0.0f);
-        
+
+        isAiming = player.GetButton("Mouse_IsAiming");
 
         if (controler_AttackDirection.magnitude > 0.0f)
         {
@@ -73,12 +71,16 @@ public class PlayerMovement : MonoBehaviour
             crossHair.SetActive(true);
         }
 
-        else if (mouse_AttackDirection.magnitude > 0.0f)
+        else if (isAiming)
         {
-            mouse_AttackDirection.Normalize();
-            mouse_AttackDirection *= 4.0f;
-            crossHair.transform.localPosition = mouse_AttackDirection;
             crossHair.SetActive(true);
+
+            if (mouse_AttackDirection.magnitude > 0.0f)
+            {
+                mouse_AttackDirection.Normalize();
+                mouse_AttackDirection *= 4.0f;
+                crossHair.transform.localPosition = mouse_AttackDirection;
+            }
         }
 
         else
