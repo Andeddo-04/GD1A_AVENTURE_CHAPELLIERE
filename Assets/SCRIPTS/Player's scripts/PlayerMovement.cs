@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float controler_horizontalMovement, controler_verticalMovement, keyboard_horizontalMovement, keyboard_verticalMovement;
+    ////////// * Variables privées en [SerializeField] * \\\\\\\\\\
 
     [SerializeField] private float moveSpeed;
 
@@ -11,23 +11,26 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private SpriteRenderer characterSpriteRenderer;
 
-    private Vector3 velocity = Vector3.zero;
+    ////////// * Variables privées * \\\\\\\\\\
 
-    public bool completeDongeon = false , useController;
-    
+    private float controller_horizontalMovement, controller_verticalMovement, keyboard_horizontalMovement, keyboard_verticalMovement;
+
     private bool isAiming = false, endOfAiming;
 
-    private Vector2 lastMoveDirection = Vector2.right; // Store last move direction
-
-    private Vector3 controler_AttackDirection, mouse_AttackDirection;
-
-    public GameObject crossHair,newPosition;
+    private Vector3 velocity = Vector3.zero, controller_AttackDirection, mouse_AttackDirection;
 
     private Player player;
 
-    public int playerId = 0;
+    ////////// * Variables publiques * \\\\\\\\\\
 
-    private void Awake()
+    public int playerId = 0;
+    
+    public bool completeDongeon = false, useController; 
+    
+    public GameObject crossHair,newPosition;
+
+    ////////// * Méthode Awake() * \\\\\\\\\\
+    void Awake()
     {
         player = ReInput.players.GetPlayer(playerId);
 
@@ -35,43 +38,53 @@ public class PlayerMovement : MonoBehaviour
         Cursor.visible = false;
     }
 
+    ////////// * Méthode Update() * \\\\\\\\\\
     void Update()
     {
         MovePlayer();
         MoveCrossHair();
         RotatePlayerTowardsCrosshair();
         crossHairTracker();
+        controlerSwitch();
     }
 
+    ////////// * Méthode MovePlayer() * \\\\\\\\\\
     void MovePlayer()
-    {
-        // * Contrôle a la manette * \\
-        controler_horizontalMovement = player.GetAxis("Controler_MoveHorizontal") * moveSpeed * Time.deltaTime;
-        controler_verticalMovement = player.GetAxis("Controler_MoveVertical") * moveSpeed * Time.deltaTime;
-
-        Vector3 targetVelocityWhisControler = new Vector2(controler_horizontalMovement, controler_verticalMovement);
-        characterSprite.velocity = Vector3.SmoothDamp(characterSprite.velocity, targetVelocityWhisControler, ref velocity, 0.05f);
-
-        // * Contrôle au clavier * \\
-        keyboard_horizontalMovement = player.GetAxis("KeyBoard_MoveHorizontal") * moveSpeed * Time.deltaTime;
-        keyboard_verticalMovement = player.GetAxis("KeyBoard_MoveVertical") * moveSpeed * Time.deltaTime;
-
-        Vector3 targetVelocityWhisKeyBoard = new Vector2(keyboard_horizontalMovement, keyboard_verticalMovement);
-        characterSprite.velocity = Vector3.SmoothDamp(characterSprite.velocity, targetVelocityWhisKeyBoard, ref velocity, 0.05f);
-    }
-
-    
-    private void MoveCrossHair()
     {
         if (useController)
         {
-            controler_AttackDirection = new Vector3(player.GetAxis("Controler_AimHorizontal"), player.GetAxis("Controler_AimVertical"), 0.0f);
+            ////////// * Contrôle à la manette * \\\\\\\\\\
+            controller_horizontalMovement = player.GetAxis("Controler_MoveHorizontal") * moveSpeed * Time.deltaTime;
+            controller_verticalMovement = player.GetAxis("Controler_MoveVertical") * moveSpeed * Time.deltaTime;
 
-            if (controler_AttackDirection.magnitude > 0.0f)
+            Vector3 targetVelocityWhisControler = new Vector2(controller_horizontalMovement, controller_verticalMovement);
+            characterSprite.velocity = Vector3.SmoothDamp(characterSprite.velocity, targetVelocityWhisControler, ref velocity, 0.05f);
+        }
+
+        if (!useController)
+        {
+            ////////// * Contrôle au clavier * \\\\\\\\\\
+            keyboard_horizontalMovement = player.GetAxis("KeyBoard_MoveHorizontal") * moveSpeed * Time.deltaTime;
+            keyboard_verticalMovement = player.GetAxis("KeyBoard_MoveVertical") * moveSpeed * Time.deltaTime;
+
+            Vector3 targetVelocityWhisKeyBoard = new Vector2(keyboard_horizontalMovement, keyboard_verticalMovement);
+            characterSprite.velocity = Vector3.SmoothDamp(characterSprite.velocity, targetVelocityWhisKeyBoard, ref velocity, 0.05f);
+        }
+    }
+
+    ////////// * Méthode MoveCrossHair() * \\\\\\\\\\
+    void MoveCrossHair()
+    {
+        ////////// * Contrôle du crosshair à la manette * \\\\\\\\\\
+        if (useController)
+        {
+            controller_AttackDirection = new Vector3(player.GetAxis("Controler_AimHorizontal"), player.GetAxis("Controler_AimVertical"), 0.0f);
+
+            if (controller_AttackDirection.magnitude > 0.0f)
             {
-                controler_AttackDirection.Normalize();
-                controler_AttackDirection *= 2.0f;
-                crossHair.transform.localPosition = controler_AttackDirection;
+                controller_AttackDirection.Normalize();
+                controller_AttackDirection *= 2.0f;
+                crossHair.transform.localPosition = controller_AttackDirection;
                 crossHair.SetActive(true);
             }
 
@@ -80,14 +93,13 @@ public class PlayerMovement : MonoBehaviour
                 crossHair.SetActive(false);
             }
         }
-        
-        
-        if (useController == false)
+
+        ////////// * Contrôle du crosshair à la sourie * \\\\\\\\\\
+        if (!useController)
         {
             mouse_AttackDirection = new Vector3(player.GetAxis("Mouse_AimHorizontal"), player.GetAxis("Mouse_AimVertical"), 0.0f);
             Vector3 mouseMovement = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0.0f);
-            controler_AttackDirection = controler_AttackDirection + mouseMovement;
-            //mouse_AttackDirection.Normalize();
+            controller_AttackDirection = controller_AttackDirection + mouseMovement;
 
             isAiming = player.GetButton("Mouse_IsAiming");
             endOfAiming = player.GetButtonUp("Mouse_IsAiming");
@@ -111,7 +123,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void RotatePlayerTowardsCrosshair()
+    ////////// * Méthode RotatePlayerTowardsCrosshair() * \\\\\\\\\\
+    void RotatePlayerTowardsCrosshair()
     {
         if (crossHair && crossHair.activeSelf)
         {
@@ -132,8 +145,23 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    ////////// * Méthode crossHairTracker() * \\\\\\\\\\
     void crossHairTracker()
     {
         GameObject.FindGameObjectWithTag("crossHairTracker").transform.position = newPosition.transform.position;
+    }
+
+    ////////// * Méthode controlerSwitch() * \\\\\\\\\\
+    void controlerSwitch()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad1) && !useController)
+        {
+            useController = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad2) && useController)
+        {
+            useController = false;
+        }
     }
 }
