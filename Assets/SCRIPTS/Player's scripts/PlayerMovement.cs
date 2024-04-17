@@ -3,13 +3,23 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    ////////// * Variables privées en [SerializeField] * \\\\\\\\\\
+    ////////// * Variables publiques * \\\\\\\\\\
 
-    [SerializeField] private float moveSpeed;
+    public Rigidbody2D characterSprite;
 
-    [SerializeField] private Rigidbody2D characterSprite;
+    public SpriteRenderer characterSpriteRenderer;
 
-    [SerializeField] private SpriteRenderer characterSpriteRenderer;
+    public BoxCollider2D characterBoxCollider;
+
+    public GameObject crossHair, newPosition;
+
+    public static PlayerMovement instance;
+
+    public int playerId = 0;
+    
+    public float moveSpeed;
+
+    public bool completeDongeon = false, useController = false;
 
     ////////// * Variables privées * \\\\\\\\\\
 
@@ -17,17 +27,10 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isAiming = false, endOfAiming;
 
-    private Vector3 velocity = Vector3.zero, controller_AttackDirection, mouse_AttackDirection;
+    private Vector3 velocity, controller_AttackDirection, mouse_AttackDirection, aim;
 
     private Player player;
-
-    ////////// * Variables publiques * \\\\\\\\\\
-
-    public int playerId = 0;
     
-    public bool completeDongeon = false, useController; 
-    
-    public GameObject crossHair,newPosition;
 
     ////////// * Méthode Awake() * \\\\\\\\\\
     void Awake()
@@ -36,6 +39,14 @@ public class PlayerMovement : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        if (instance != null)
+        {
+            Debug.LogWarning("Il n'a plus d'instance de playerMovement dans la scène");
+            return;
+        }
+
+        instance = this;
     }
 
     ////////// * Méthode Update() * \\\\\\\\\\
@@ -99,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
         {
             mouse_AttackDirection = new Vector3(player.GetAxis("Mouse_AimHorizontal"), player.GetAxis("Mouse_AimVertical"), 0.0f);
             Vector3 mouseMovement = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0.0f);
-            controller_AttackDirection = controller_AttackDirection + mouseMovement;
+            aim += mouseMovement;
 
             isAiming = player.GetButton("Mouse_IsAiming");
             endOfAiming = player.GetButtonUp("Mouse_IsAiming");

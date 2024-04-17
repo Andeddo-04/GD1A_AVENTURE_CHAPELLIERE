@@ -5,6 +5,7 @@ using UnityEngine;
 public class playerHealth : MonoBehaviour
 {
     public int maxhealth = 100;
+    
     public int currentHealth;
 
     public bool isInvicible = false;
@@ -26,7 +27,7 @@ public class playerHealth : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            TakeDamage(20);
+            TakeDamage(100);
         }
     }
 
@@ -36,10 +37,31 @@ public class playerHealth : MonoBehaviour
         {
             currentHealth -= damage;
             healthBar.SetHealth(currentHealth);
+
+            if (currentHealth <= 0)
+            {
+                Die();
+                return;
+            }
+
             isInvicible = true;
             StartCoroutine(InvincibilityFlash());
             StartCoroutine(HandleInvincibilityDelay());
+            
         }
+    }
+
+    void Die()
+    {
+        Debug.Log("Je meurt mais n'oubliez psa, LE DESTIN N'EST QUE LA DESTIBEE DU DESTIN ... PTN TA GUEULE !");
+        PlayerMovement.instance.enabled = false;
+        //PlayerMovement.instance.animator.SetTrigger("Die");
+        PlayerMovement.instance.characterSprite.bodyType = RigidbodyType2D.Kinematic;
+        PlayerMovement.instance.characterSprite.velocity = Vector3.zero;
+        PlayerMovement.instance.characterBoxCollider.enabled = false;
+        
+        PlayerMovement.instance.characterSpriteRenderer.enabled = false;
+
     }
 
     public IEnumerator InvincibilityFlash()
