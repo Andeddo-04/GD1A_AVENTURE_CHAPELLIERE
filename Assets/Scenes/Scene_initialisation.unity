@@ -1390,7 +1390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.0000038146973, y: 16.228302}
+  m_AnchoredPosition: {x: -0.0000038146973, y: 16.228271}
   m_SizeDelta: {x: 244.5625, y: 32.4566}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &834767662
@@ -1845,6 +1845,7 @@ MonoBehaviour:
   characterSprite: {fileID: 1519844967}
   characterSpriteRenderer: {fileID: 1519844963}
   completeDongeon: 0
+  useController: 0
   crossHair: {fileID: 639333477}
   newPosition: {fileID: 1519844962}
   playerId: 0
