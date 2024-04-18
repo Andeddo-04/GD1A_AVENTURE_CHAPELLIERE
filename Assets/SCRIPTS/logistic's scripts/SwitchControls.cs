@@ -5,14 +5,15 @@ using UnityEngine;
 
 public class SwitchControls : MonoBehaviour
 {
-    public Toggle controlesClavier;
+    public Toggle controlesClavier, controlesManette;
 
-    public Toggle controlesManette;
+    public PlayerMovement playerMovement;
 
     private void Awake()
     {
         controlesClavier = GameObject.FindGameObjectWithTag("KeyBoardType").GetComponent<Toggle>();
         controlesManette = GameObject.FindGameObjectWithTag("ControllerType").GetComponent<Toggle>();
+        playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
     // Start is called before the first frame update
@@ -22,13 +23,17 @@ public class SwitchControls : MonoBehaviour
         controlesManette.isOn = false; 
     }
 
-    public void SwitchIntoKeyBoard()
-    {
-        controlesManette.isOn = !controlesClavier.isOn;
-    }
-
     public void SwitchIntoController()
     {
+        controlesManette.isOn = !controlesClavier.isOn;
+
+        playerMovement.SetControllerUsage(true);
+    }
+
+    public void SwitchIntoKeyBoard()
+    {
         controlesClavier.isOn = !controlesManette.isOn;
+
+        playerMovement.SetControllerUsage(false);
     }
 }

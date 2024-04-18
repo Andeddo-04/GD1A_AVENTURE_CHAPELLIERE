@@ -15,8 +15,6 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement instance;
 
-    public SwitchControls controlesClavier, controlesManette;
-
     public int playerId = 0;
     
     public float moveSpeed;
@@ -60,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         MoveCrossHair();
         RotatePlayerTowardsCrosshair();
         crossHairTracker();
-        controlerSwitch();
+        //controllerSwitch();
     }
 
     ////////// * Méthode MovePlayer() * \\\\\\\\\\
@@ -166,19 +164,24 @@ public class PlayerMovement : MonoBehaviour
         GameObject.FindGameObjectWithTag("crossHairTracker").transform.position = newPosition.transform.position;
     }
 
-    ////////// * Méthode controlerSwitch() * \\\\\\\\\\
-    void controlerSwitch()
-    {
-        ////////// * Switch pour les contrôles clavier souries * \\\\\\\\\\
-        if (Input.GetKeyDown(KeyCode.Keypad1) && useController)
-        {
-            useController = false;
-        }
+    ////////// * Méthode controllerSwitch() * \\\\\\\\\\
+    //void controllerSwitch()
+    //{
+    //    ////////// * Switch pour les contrôles clavier souries * \\\\\\\\\\
+    //    if (Input.GetKeyDown(KeyCode.Keypad1) && useController)
+    //    {
+    //        useController = false;
+    //    }
+//
+    //    ////////// * Switch pour les contrôles manettes * \\\\\\\\\\
+    //    if (Input.GetKeyDown(KeyCode.Keypad2) && !useController)
+    //    {
+    //        useController = true;
+    //    }
+    //}
 
-        ////////// * Switch pour les contrôles manettes * \\\\\\\\\\
-        if (Input.GetKeyDown(KeyCode.Keypad2) && !useController)
-        {
-            useController = true;
-        }
+    public void SetControllerUsage(bool useController)
+    {
+        this.useController = useController;
     }
 }
