@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement instance;
 
+    public SwitchControls controlesClavier, controlesManette;
+
     public int playerId = 0;
     
     public float moveSpeed;
@@ -27,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isAiming = false, endOfAiming;
 
-    private Vector3 velocity, controller_AttackDirection, mouse_AttackDirection, aim;
+    private Vector3 velocity, controller_AttackDirection, aim;
 
     private Player player;
     
@@ -47,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         instance = this;
+
+        
     }
 
     ////////// * Méthode Update() * \\\\\\\\\\
