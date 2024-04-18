@@ -7,6 +7,8 @@ TagManager:
   - transistorAxeX
   - InteractUI
   - crossHairTracker
+  - ControllerType
+  - KeyBoardType
   layers:
   - Default
   - TransparentFX

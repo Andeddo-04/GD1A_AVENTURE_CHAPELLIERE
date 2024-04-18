@@ -108,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
         ////////// * Contrôle du crosshair à la sourie * \\\\\\\\\\
         if (!useController)
         {
-            mouse_AttackDirection = new Vector3(player.GetAxis("Mouse_AimHorizontal"), player.GetAxis("Mouse_AimVertical"), 0.0f);
+            // mouse_AttackDirection = new Vector3(player.GetAxis("Mouse_AimHorizontal"), player.GetAxis("Mouse_AimVertical"), 0.0f);
             Vector3 mouseMovement = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0.0f);
             aim += mouseMovement;
 
@@ -119,11 +119,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 crossHair.SetActive(true);
 
-                if (mouse_AttackDirection.magnitude > 1.0f)
+                if (aim.magnitude > 1.0f)
                 {
-                    mouse_AttackDirection.Normalize();
-                    mouse_AttackDirection *= 2.0f;
-                    crossHair.transform.localPosition = mouse_AttackDirection;
+                    aim.Normalize();
+                    aim *= 2.0f;
+                    crossHair.transform.localPosition = aim;
                 }
             }
 
@@ -165,14 +165,16 @@ public class PlayerMovement : MonoBehaviour
     ////////// * Méthode controlerSwitch() * \\\\\\\\\\
     void controlerSwitch()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad1) && !useController)
-        {
-            useController = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Keypad2) && useController)
+        ////////// * Switch pour les contrôles clavier souries * \\\\\\\\\\
+        if (Input.GetKeyDown(KeyCode.Keypad1) && useController)
         {
             useController = false;
+        }
+
+        ////////// * Switch pour les contrôles manettes * \\\\\\\\\\
+        if (Input.GetKeyDown(KeyCode.Keypad2) && !useController)
+        {
+            useController = true;
         }
     }
 }

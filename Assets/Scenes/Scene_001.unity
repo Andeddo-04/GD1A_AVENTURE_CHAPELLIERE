@@ -1895,6 +1895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: Fire cristal
   isInRange: 0
+  playerId: 0
 --- !u!212 &1646254904
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -20,11 +20,13 @@ public class Cristal : MonoBehaviour
 
     void Update()
     {
+        if (isInRange && PlayerMovement.instance.useController == true && player.GetButtonDown("Controler_Interact"))
+
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        
         // Vérifier si le joueur est dans la zone et s'il appuie sur la touche E
-        if ((isInRange && player.GetButtonDown("KeyBoard_Interact")) || (isInRange && player.GetButtonDown("Controler_Interact")))
+        if (isInRange && PlayerMovement.instance.useController == false && player.GetButtonDown("KeyBoard_Interact"))
         {
-            Debug.Log("interaction réussite");
-            // Charger la scène spécifiée
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
     }
