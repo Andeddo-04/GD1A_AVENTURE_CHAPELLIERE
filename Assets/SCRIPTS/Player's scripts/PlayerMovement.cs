@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // mouse_AttackDirection = new Vector3(player.GetAxis("Mouse_AimHorizontal"), player.GetAxis("Mouse_AimVertical"), 0.0f);
             Vector3 mouseMovement = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0.0f);
-            aim += mouseMovement;
+            aim += mouseMovement * 2;
 
             isAiming = player.GetButton("Mouse_IsAiming");
             endOfAiming = player.GetButtonUp("Mouse_IsAiming");
