@@ -9,6 +9,7 @@ TagManager:
   - crossHairTracker
   - ControllerType
   - KeyBoardType
+  - PlayerHealthBar
   layers:
   - Default
   - TransparentFX
