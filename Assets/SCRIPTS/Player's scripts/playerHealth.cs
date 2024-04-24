@@ -27,7 +27,7 @@ public class playerHealth : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            TakeDamage(20);
+            TakeDamage(100);
         }
     }
 
@@ -51,9 +51,8 @@ public class playerHealth : MonoBehaviour
         }
     }
 
-    void Die()
+    public void Die()
     {
-        Debug.Log("Je meurt mais n'oubliez psa, LE DESTIN N'EST QUE LA DESTIBEE DU DESTIN ... PTN TA GUEULE !");
         PlayerMovement.instance.enabled = false;
         //PlayerMovement.instance.animator.SetTrigger("Die");
         PlayerMovement.instance.characterSprite.bodyType = RigidbodyType2D.Kinematic;

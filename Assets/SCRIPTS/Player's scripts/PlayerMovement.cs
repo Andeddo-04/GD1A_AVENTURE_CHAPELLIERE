@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     public SpriteRenderer characterSpriteRenderer;
 
-    public BoxCollider2D characterBoxCollider;
+    public CapsuleCollider2D characterBoxCollider;
 
     public GameObject crossHair, newPosition;
 

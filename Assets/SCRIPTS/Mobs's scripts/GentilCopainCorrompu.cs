@@ -79,6 +79,12 @@ public class GentilCopainCorrompu : MonoBehaviour
         {
             playerHealth = player.GetComponent<playerHealth>();
             playerHealth.TakeDamage(10);
+
+            if (playerHealth.currentHealth <= 0)
+            {
+                playerHealth.Die();
+                return;
+            }
         }
     }
 

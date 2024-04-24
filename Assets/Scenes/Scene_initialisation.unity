@@ -1706,7 +1706,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -516, y: 445}
+  m_AnchoredPosition: {x: -509, y: 435}
   m_SizeDelta: {x: 465.58, y: 49.68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1250353038
@@ -1775,8 +1775,8 @@ MonoBehaviour:
   slider: {fileID: 1250353038}
   gradient:
     serializedVersion: 2
-    key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 1, g: 0.08962262, b: 0.08962262, a: 1}
+    key0: {r: 0.2392157, g: 0.058823533, b: 0.06666667, a: 1}
+    key1: {r: 1, g: 0, b: 0, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -2026,7 +2026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterSprite: {fileID: 1519844967}
   characterSpriteRenderer: {fileID: 1519844963}
-  characterBoxCollider: {fileID: 0}
+  characterBoxCollider: {fileID: 1519844969}
   crossHair: {fileID: 639333477}
   newPosition: {fileID: 1519844962}
   playerId: 0
@@ -2212,7 +2212,7 @@ Transform:
   m_GameObject: {fileID: 1707542553}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.53, y: -1.79, z: 0}
+  m_LocalPosition: {x: 0, y: 55.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2279,7 +2279,7 @@ GameObject:
   - component: {fileID: 2059351331}
   - component: {fileID: 2059351334}
   m_Layer: 0
-  m_Name: transition_to_Scene_001
+  m_Name: transition_to_Exterieur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2294,7 +2294,7 @@ Transform:
   m_GameObject: {fileID: 2059351329}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.85745, y: -0.37758, z: -0.018979}
+  m_LocalPosition: {x: 2.4, y: -2, z: -0.018979}
   m_LocalScale: {x: 59.821705, y: 33.9786, z: 3.3978598}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2409,7 +2409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2bdd16c28d8fb44f9621ac035f9bcb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Scene_001
+  sceneName: Exterieur
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

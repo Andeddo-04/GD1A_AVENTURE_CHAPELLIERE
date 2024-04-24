@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using Rewired;
 
-public class Cristal : MonoBehaviour
+public class EntreeDonjon : MonoBehaviour
 {
     public string sceneName;
     private TextMeshProUGUI interactUI;
