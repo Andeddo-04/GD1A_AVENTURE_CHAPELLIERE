@@ -21,14 +21,20 @@ public class GameOverManager : MonoBehaviour
     public void OnPlayerDeath()
     {
         gameOverUI.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void RetryButton()
     {
-        Inventory.instance.RemoveCoins(CurrentSceneManager.instance.coinsPickedUpInThisSceneCount);
+        //Inventory.instance.RemoveCoins(CurrentSceneManager.instance.coinsPickedUpInThisSceneCount);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        PlayerHealth.instance.Respawn();
+        playerHealth.instance.Respawn();
         gameOverUI.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false;
     }
 
     public void MainMenuButton()

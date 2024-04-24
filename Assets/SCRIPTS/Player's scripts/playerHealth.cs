@@ -14,6 +14,19 @@ public class playerHealth : MonoBehaviour
 
     public PlayerHealthbar healthBar;
 
+    public static playerHealth instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Il y a plus d'une instance de GameOverManager dans la scène");
+            return;
+        }
+
+        instance = this;
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -60,7 +73,20 @@ public class playerHealth : MonoBehaviour
         PlayerMovement.instance.characterBoxCollider.enabled = false;
         
         PlayerMovement.instance.characterSpriteRenderer.enabled = false;
+        GameOverManager.instance.OnPlayerDeath();
+    }
 
+    public void Respawn()
+    {
+        PlayerMovement.instance.enabled = true;
+        //PlayerMovement.instance.animator.SetTrigger("Respawn");
+        PlayerMovement.instance.characterSprite.bodyType = RigidbodyType2D.Dynamic;
+        PlayerMovement.instance.characterSprite.velocity = Vector3.zero;
+        PlayerMovement.instance.characterBoxCollider.enabled = true;
+        PlayerMovement.instance.characterSpriteRenderer.enabled = true;
+
+        currentHealth = maxhealth;
+        healthBar.SetMaxHealth(maxhealth);
     }
 
     public IEnumerator InvincibilityFlash()
