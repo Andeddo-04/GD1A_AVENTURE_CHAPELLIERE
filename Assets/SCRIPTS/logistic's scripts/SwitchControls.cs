@@ -25,14 +25,14 @@ public class SwitchControls : MonoBehaviour
 
     public void SwitchIntoController()
     {
-        controlesManette.isOn = !controlesClavier.isOn;
+        controlesClavier.isOn = !controlesManette.isOn;
 
         playerMovement.SetControllerUsage(true);
     }
 
     public void SwitchIntoKeyBoard()
     {
-        controlesClavier.isOn = !controlesManette.isOn;
+        controlesManette.isOn = !controlesClavier.isOn;
 
         playerMovement.SetControllerUsage(false);
     }

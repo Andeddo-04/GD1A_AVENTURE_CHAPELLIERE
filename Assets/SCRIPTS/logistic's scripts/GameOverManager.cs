@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
-    public GameObject gameOverUI;
+    public GameObject gameOverUI, canvasMainMenu, canvasUI;
 
     public static GameOverManager instance;
 
@@ -39,7 +39,8 @@ public class GameOverManager : MonoBehaviour
 
     public void MainMenuButton()
     {
-        SceneManager.LoadScene("MainMenu");
+        canvasMainMenu.SetActive(true);
+        canvasUI.SetActive(false);
     }
 
     public void QuitButton()

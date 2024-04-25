@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     public CapsuleCollider2D characterBoxCollider;
 
-    public GameObject crossHair, newPosition;
+    public GameObject crossHair, newPosition, canvasMainMenu;
 
     public static PlayerMovement instance;
 
@@ -37,9 +37,6 @@ public class PlayerMovement : MonoBehaviour
     {
         player = ReInput.players.GetPlayer(playerId);
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
         if (instance != null)
         {
             Debug.LogWarning("Il n'a plus d'instance de playerMovement dans la scène");
@@ -47,9 +44,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         instance = this;
-
-        
     }
+
+    
 
     ////////// * Méthode Update() * \\\\\\\\\\
     void Update()
@@ -183,5 +180,11 @@ public class PlayerMovement : MonoBehaviour
     public void SetControllerUsage(bool useController)
     {
         this.useController = useController;
+    }
+
+    public void HideAndLockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

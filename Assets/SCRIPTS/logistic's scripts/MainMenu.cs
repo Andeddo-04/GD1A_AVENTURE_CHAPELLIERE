@@ -5,11 +5,16 @@ public class MainMenu : MonoBehaviour
 {
     public string levelToLoad;
 
-    public GameObject settingsWindow;
+    public GameObject settingsWindow, canvasMainMenu, canvasUI;
+
+    public PlayerMovement playerMovement;
 
     public void StartGame()
     {
         SceneManager.LoadScene(levelToLoad);
+        canvasMainMenu.SetActive(false);
+        canvasUI.SetActive(true);
+        playerMovement.HideAndLockCursor();
     }
 
     public void SettingsButton()
@@ -20,11 +25,6 @@ public class MainMenu : MonoBehaviour
     public void CloseSettingsWindow()
     {
         settingsWindow.SetActive(false);
-    }
-
-    public void LoadCreditsScene()
-    {
-        SceneManager.LoadScene("Credits");
     }
 
     public void QuitGame()
