@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity, controller_AttackDirection, aim;
 
     private Player player;
+
+    public GameObject Menu;
     
 
     ////////// * Méthode Awake() * \\\\\\\\\\
@@ -51,11 +53,26 @@ public class PlayerMovement : MonoBehaviour
     ////////// * Méthode Update() * \\\\\\\\\\
     void Update()
     {
-        MovePlayer();
-        MoveCrossHair();
-        RotatePlayerTowardsCrosshair();
-        crossHairTracker();
-        //controllerSwitch();
+        if (Menu.activeSelf == false)
+        {
+            MovePlayer();
+            MoveCrossHair();
+            RotatePlayerTowardsCrosshair();
+            crossHairTracker();
+            //controllerSwitch();
+
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        
+
     }
 
     ////////// * Méthode MovePlayer() * \\\\\\\\\\
@@ -184,7 +201,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void HideAndLockCursor()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

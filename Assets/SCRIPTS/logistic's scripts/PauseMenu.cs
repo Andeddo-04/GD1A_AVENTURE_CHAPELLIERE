@@ -14,20 +14,25 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (player.GetButtonDown("Controller_PauseButton") && playerMovement.useController)
+        if (canvasMainMenu.activeSelf == false)
         {
-            if (!gameIsPaused)
+            if (Input.GetKeyDown(KeyCode.Escape) && playerMovement.useController)
+            {
+                if (!gameIsPaused)
+                {
+                    Paused();
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape) && !playerMovement.useController)
             {
                 Paused();
             }
-        } else if (player.GetButtonDown("KeyBoard_PauseButton") && !playerMovement.useController)
-        {
-            Paused();
         }
     }
 
     public void ResumeGame()
     {
+        canvasPauseMenu.SetActive(false);
         canvasMainMenu.SetActive(false);
         playerMovement.HideAndLockCursor();
 
