@@ -19,7 +19,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (canvasMainMenu.activeSelf == false)
         {
-            if (Input.GetKeyDown(KeyCode.Escape) && playerMovement.useController)
+            if (player.GetButtonDown("Controller_PauseButton") && playerMovement.useController)
             {
                 if (!gameIsPaused)
                 {
