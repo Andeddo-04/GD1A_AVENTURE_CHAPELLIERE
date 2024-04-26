@@ -1,14 +1,17 @@
 using Rewired;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    public string levelToLoad;
+
     public static bool gameIsPaused = false;
 
     public GameObject settingsWindow, canvasMainMenu, canvasUI, canvasPauseMenu;
 
     public PlayerMovement playerMovement;
+
+    public playerHealth playerHealth;
 
     private Player player;
 
@@ -54,7 +57,10 @@ public class PauseMenu : MonoBehaviour
     public void MainMenuButton()
     {
         canvasMainMenu.SetActive(true);
+        canvasPauseMenu.SetActive(false);
         canvasUI.SetActive(false);
+
+        playerHealth.instance.Respawn();
     }
 
     void Paused()

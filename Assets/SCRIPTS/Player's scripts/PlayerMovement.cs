@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     public CapsuleCollider2D characterBoxCollider;
 
-    public GameObject crossHair, newPosition, canvasMainMenu;
+    public GameObject crossHair, newPosition, canvasMainMenu, canvasUI, canvaspauseMenu;
 
     public static PlayerMovement instance;
 
@@ -30,8 +30,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity, controller_AttackDirection, aim;
 
     private Player player;
-
-    public GameObject Menu;
     
 
     ////////// * Méthode Awake() * \\\\\\\\\\
@@ -53,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     ////////// * Méthode Update() * \\\\\\\\\\
     void Update()
     {
-        if (Menu.activeSelf == false)
+        if (canvaspauseMenu.activeSelf == false && canvasMainMenu.activeSelf == false)
         {
             MovePlayer();
             MoveCrossHair();
@@ -66,13 +64,17 @@ public class PlayerMovement : MonoBehaviour
             Cursor.visible = false;
         }
 
-        else
+        else if (canvasMainMenu.activeSelf == true && canvaspauseMenu.activeSelf == false && canvasUI.activeSelf == false)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        
 
+        else if (canvasMainMenu.activeSelf == false && canvaspauseMenu.activeSelf == true && canvasUI.activeSelf == true)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     ////////// * Méthode MovePlayer() * \\\\\\\\\\

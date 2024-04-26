@@ -5,9 +5,20 @@ public class MainMenu : MonoBehaviour
 {
     public string levelToLoad;
 
-    public GameObject settingsWindow, canvasMainMenu, canvasUI;
+    public static bool gameIsPaused = true;
+
+    public GameObject settingsWindow, canvasMainMenu, canvasPauseMenu, canvasUI;
 
     public PlayerMovement playerMovement;
+
+    private void Update()
+    {
+        if (canvasMainMenu.activeSelf == true && canvasPauseMenu.activeSelf == false && canvasUI.activeSelf == false)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
 
     public void StartGame()
     {
@@ -30,5 +41,11 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    
+    void Paused()
+    {
+        Time.timeScale = 0;
+        gameIsPaused = true;
     }
 }
