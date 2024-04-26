@@ -8210,6 +8210,7 @@ MonoBehaviour:
   moveSpeed: 500
   completeDongeon: 0
   useController: 0
+  Menu: {fileID: 1290378667}
 --- !u!50 &1519844967
 Rigidbody2D:
   serializedVersion: 4
