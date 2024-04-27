@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Exterieur.unity
     guid: df9a8e7a4f50d294e96329aa97598c2f
   - enabled: 1
-    path: Assets/Scenes/Donjon.unity
+    path: Assets/SCRIPTS/Mobs's scripts/Boss/Donjon.unity
     guid: 27f04429d66f8af46ba7484e64b8706a
   m_configObjects: {}
