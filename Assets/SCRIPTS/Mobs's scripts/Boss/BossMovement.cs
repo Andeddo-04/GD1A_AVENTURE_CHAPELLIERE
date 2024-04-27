@@ -10,11 +10,11 @@ public class BossMovement : MonoBehaviour
 
     public bool playerAtCAC = false, playerAtMELE = false, playerAtRANGE = false;
 
-    public GameObject miniBoss;
+    public GameObject boss;
 
-    public Rigidbody2D miniBossSripte;
+    public Rigidbody2D bossSripte;
 
-    public SpriteRenderer miniBossSripteRenderer;
+    public SpriteRenderer bossSripteRenderer;
 
     public Transform[] teleportPoints;
 
@@ -47,15 +47,15 @@ public class BossMovement : MonoBehaviour
                 StartCoroutine(Cooldown(3));
             }
 
-            if (coroutineIsStarted == false)
-            {
-                StartCoroutine(TeleportationFrames());
-            }
+            //if (coroutineIsStarted == false)
+            //{
+            //    StartCoroutine(TeleportationFrames());
+            //}
 
         }
     }
 
-    ////////// * Méthode pour changer les bool depuis un autre script * \\\\\\\\\\
+    ////////// * Mï¿½thode pour changer les bool depuis un autre script * \\\\\\\\\\
     public void cacStatusChanger(bool newBool)
     {
         playerAtCAC = newBool;
@@ -94,7 +94,7 @@ public class BossMovement : MonoBehaviour
     public IEnumerator PremiereTP()
     {
         yield return new WaitForSeconds(1f);
-        miniBoss.transform.position = teleportPoints[Random.Range(0, 4)].transform.position;
+        boss.transform.position = teleportPoints[Random.Range(0, 4)].transform.position;
         StartCoroutine(Cooldown(1));
     }
 
@@ -108,7 +108,7 @@ public class BossMovement : MonoBehaviour
         yield return new WaitForSeconds(3f);
         
         
-        miniBoss.transform.position = teleportPoints[Random.Range(0, 4)].transform.position;
+        boss.transform.position = teleportPoints[Random.Range(0, 4)].transform.position;
 
         isInvicible = false;
 

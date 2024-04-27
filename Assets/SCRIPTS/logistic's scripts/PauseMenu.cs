@@ -5,6 +5,8 @@ public class PauseMenu : MonoBehaviour
 {
     public string levelToLoad;
 
+    public float cursorSpeed = 1.0f;
+
     public static bool gameIsPaused = false;
 
     public GameObject settingsWindow, canvasMainMenu, canvasUI, canvasPauseMenu;
@@ -15,20 +17,29 @@ public class PauseMenu : MonoBehaviour
 
     private Player player;
 
+    private void Start()
+    {
+        player = ReInput.players.GetPlayer(0); // Obtient le joueur 0 (premier joueur) dans Rewired
+    }
+
     private void Update()
     {
         if (canvasMainMenu.activeSelf == false)
         {
-            if (player.GetButtonDown("Controller_PauseButton") && playerMovement.useController)
+            if (player.GetButtonDown("KeyBoard_PauseButton") && !playerMovement.useController)
             {
                 if (!gameIsPaused)
                 {
                     Paused();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.Escape) && !playerMovement.useController)
+            
+            if (player.GetButtonDown("Controler_PauseButton") && playerMovement.useController)
             {
-                Paused();
+                if (!gameIsPaused)
+                {
+                    Paused();
+                }
             }
         }
     }
@@ -54,13 +65,9 @@ public class PauseMenu : MonoBehaviour
         settingsWindow.SetActive(false);
     }
 
-    public void MainMenuButton()
+    public void QuitGame()
     {
-        canvasMainMenu.SetActive(true);
-        canvasPauseMenu.SetActive(false);
-        canvasUI.SetActive(false);
-
-        playerHealth.instance.Respawn();
+        Application.Quit();
     }
 
     void Paused()
