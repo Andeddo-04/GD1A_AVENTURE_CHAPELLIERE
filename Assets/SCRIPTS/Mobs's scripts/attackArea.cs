@@ -5,11 +5,11 @@ using UnityEngine;
 public class attackArea : MonoBehaviour
 {
 
-    private GentilCopainCorrompu playerDetection;
+    private Ennemie playerDetection;
 
     void Start()
     {
-        playerDetection = FindObjectOfType<GentilCopainCorrompu>();
+        playerDetection = FindObjectOfType<Ennemie>();
     }
 
 

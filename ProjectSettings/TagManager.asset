@@ -10,6 +10,7 @@ TagManager:
   - ControllerType
   - KeyBoardType
   - PlayerHealthBar
+  - Ennemie
   layers:
   - Default
   - TransparentFX
